@@ -1,0 +1,56 @@
+{
+    // model
+    "model": "APBSN_TBSN_Lite_Model",
+    "pd_a": 5,
+    "pd_b": 2,
+    "R3": true,
+    "R3_T": 8,
+    "R3_p": 0.16,
+    // net
+    "networks": [{
+        "name": "bsn",
+        "type": "TBSN",
+        "args": {
+            "in_ch": 3,
+            "out_ch": 3
+        }
+        , "path": "../pretrained_models/TBSN_SIDD.pth"
+    }],
+
+    "validation_datasets": [
+        {
+        "type": "SIDDSrgbValidationDataset",
+        "args": {}
+        }
+        ,{
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "IPHONE",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HUAWEI",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HighISO",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "PolyU",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "CC15",
+            "pin_memory": true
+        }}
+    ]
+}

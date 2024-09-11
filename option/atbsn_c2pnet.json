@@ -1,0 +1,77 @@
+{
+    // model
+    "model": "ATBSN_Curricular_Model",
+    "iter": 400000,
+//    "iter": 500000,
+
+    // net
+    "networks":[{
+        "name": "BNN",
+        "type": "BNN",
+        "args": {
+            "blindspot": 3
+        },
+        "path": "../pretrained_models/BNN.pth"
+    },{
+        "name": "UNet",
+        "type": "UNet",
+        "args": {}
+    }],
+    // datasets
+    "train_datasets": [{
+        "type": "SIDDSrgbTrainDataset",
+         "args": {
+             "patch_size": 128,
+             "pin_memory": true
+         },
+        "batch_size": 8
+    }],
+    "validation_datasets": [
+        {
+        "type": "SIDDSrgbValidationDataset",
+        "args": {}
+        }
+        ,{
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "IPHONE",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HUAWEI",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HighISO",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "PolyU",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "CC15",
+            "pin_memory": true
+        }}
+    ],
+
+    // training parameters
+    "lr": 3e-4,
+    "print_every": 10000000,
+    "save_every": 10000,
+    "validate_every": 10000,
+    "BNN_iters": 400000,
+    "UNet_iters": 100000,
+    "num_iters": 500000,
+    "log_dir": "logs",
+    "log_file": "logs/log.out"
+    // "resume_from": ""
+}

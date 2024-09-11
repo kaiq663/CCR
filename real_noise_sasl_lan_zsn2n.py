@@ -109,8 +109,8 @@ def main(args):
     mobile = 'IPHONE'
     # noisy = '../dataset/OOD/{mobile}/noisy_img'.format(mobile=mobile)
     # clean = '../dataset/OOD/{mobile}/clean_img'.format(mobile=mobile)
-    # noisy = '../dataset/AFM/{mobile}/input_crops'.format(mobile=mobile)
-    # clean = '../dataset/AFM/{mobile}/gt_crops'.format(mobile=mobile)
+    noisy = '../dataset/AFM/{mobile}/input_crops'.format(mobile=mobile)
+    clean = '../dataset/AFM/{mobile}/gt_crops'.format(mobile=mobile)
     paths_noisy = sorted(os.listdir(noisy))
     paths_clean = sorted(os.listdir(clean))
     rgb_chw_cv2 = imlib('rgb', fmt='chw', lib='cv2')

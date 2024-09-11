@@ -1,0 +1,50 @@
+{
+    // model
+    "model": "ATBSN_Lite_Model",
+
+    // net
+    "networks":[{
+        "name": "UNet",
+        "type": "UNet",
+        "args": {}
+        ,"path": "../pretrained_models/ood_38_77psnr.pth"
+
+    }],
+
+    "validation_datasets": [
+        {
+        "type": "SIDDSrgbValidationDataset",
+        "args": {}
+        }
+        ,{
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "IPHONE",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HUAWEI",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HighISO",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "PolyU",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "CC15",
+            "pin_memory": true
+        }}
+    ]
+}

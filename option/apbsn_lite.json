@@ -1,0 +1,56 @@
+{
+    // model
+    "model": "APBSN_Lite_Model",
+    "pd_a": 5,
+    "pd_b": 1,
+    "pd_pad": 2,
+    "R3": true,
+    "R3_T": 8,
+    "R3_p": 0.16,
+    // net
+    "networks": [{
+        "name": "bsn",
+        "type": "DBSNl",
+        "args": {
+        }
+        , "path": "../pretrained_models/APBSN_SIDD.pth" // comment this line for train
+    }],
+
+    // datasets
+    "validation_datasets": [
+        {
+        "type": "SIDDSrgbValidationDataset",
+        "args": {}
+        }
+        ,{
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "IPHONE",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HUAWEI",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HighISO",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "PolyU",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "CC15",
+            "pin_memory": true
+        }}
+    ]
+}

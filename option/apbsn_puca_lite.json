@@ -1,0 +1,60 @@
+{
+    // model
+    "model": "APBSN_PUCA_Lite_Model",
+    "iter": 0,
+    "R3": true,
+    "R3_T": 8,
+    "R3_p": 0.16,
+    "networks": [{
+        "name": "bsn",
+        "type": "PUCA",
+        "args": {
+            "img_channel": 3,
+            "pd" : [4, 2, 1],
+            "dilation": 2,
+            "width": 128,
+            "enc_blk_nums": [3,4],
+            "middle_blk_nums": 4,
+            "dec_blk_nums": [4,3]
+        }
+        ,"path": "../pretrained_models/PUCA_SIDD.pth"
+
+    }],
+
+    "validation_datasets": [
+        {
+        "type": "SIDDSrgbValidationDataset",
+        "args": {}
+        }
+        ,{
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "IPHONE",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HUAWEI",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "HighISO",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "PolyU",
+            "pin_memory": true
+        }},
+        {
+        "type": "DCValidationDataset",
+        "args": {
+            "device": "CC15",
+            "pin_memory": true
+        }}
+    ]
+}
