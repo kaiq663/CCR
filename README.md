@@ -1,10 +1,6 @@
 # Consensual Contrastive Regularization Acting as Preserving Force for Self-Supervised Generalization of Real Image Denoising
 
 
-## Installation
-This implementation based on [BasicSR](https://github.com/xinntao/BasicSR) which is a open source toolbox for image/video restoration tasks and [NAFNet](https://github.com/megvii-research/NAFNet) 
-
-
 ## Dataset
 
 Training dataset : [SIDD](https://abdokamel.github.io/sidd/#sidd-medium)
@@ -12,10 +8,19 @@ Evaluation datasets : [Poly](https://github.com/csjunxu/PolyU-Real-World-Noisy-I
 Additioanl real-world noise datasets can be downloaded from "https://github.com/ZhaomingKong/Denoising-Comparison"<br><br>
 
 
-## QuickStart
+### Training 
+Training on SIDD Medium dataset,
+```
+sh train.sh
+```
 
-For test
-python3 -m torch.distributed.launch --nproc_per_node=1 basicsr/test.py -opt options/test/DnCNN.yml -name=AFM_test --launcher pytorch
+### Validation
+Validate on SIDD Validation dataset,
+```
+cd validate
+python validate_SIDD.py
+```
+
 
 
 
@@ -23,5 +28,5 @@ python3 -m torch.distributed.launch --nproc_per_node=1 basicsr/test.py -opt opti
 
 | Dataset | Poly |CC |HighISO |iPhone |Huawei | OOD Avg.|
 |:----|:----|:----|:----|:----|:----|-----|
-|PSRN| 37.75  | 36.84 | 39.17   | 40.65   | 38.39   | 38.56   |
-|SSIM| 0.9804 | 0.9830 | 0.9801  | 0.9777  | 0.9683  | 0.9779  |
+|PSRN| 37.81  | 36.61 | 39.43   | 41.10   | 38.89   | 38.77   |
+|SSIM| 0.9587 | 0.9494 | 0.9666  | 0.9711  | 0.9588  | 0.9609  |
