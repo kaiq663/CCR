@@ -1,4 +1,4 @@
-# Consensual Contrastive Regularization Acting as Preserving Force for Self-Supervised Generalization of Real Image Denoising
+# Roubst Self-Supervised Real Image Denoising via Consensual Contrastive Regularization as Preserving Force
 
 
 ## Dataset
